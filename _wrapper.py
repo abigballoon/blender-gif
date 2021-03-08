@@ -13,5 +13,8 @@ def images2video(dir_path, framerate):
     cmd(command)
 
 def video2gif(input_path, output_path):
+    dir_path = os.path.dirname(output_path)
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
     command = "%s -y -i %s -loop 0 %s" % (FFMPEG_PATH, os.path.join(input_path, "output.mkv"), output_path)
     cmd(command)
